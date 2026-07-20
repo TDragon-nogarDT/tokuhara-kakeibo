@@ -7,7 +7,7 @@
 
 // APP_VERSIONと連動させるため、index.htmlの更新時にここも更新することで
 // 古いキャッシュを確実に破棄できます。手動でバージョン文字列を変更してください。
-const CACHE_VERSION = "v2026.07.18.2115";
+const CACHE_VERSION = "v2026.07.20.1226";
 const CACHE_NAME = `tokuhara-kakeibo-${CACHE_VERSION}`;
 
 // このアプリは単一HTMLファイル構成のため、キャッシュ対象はルートパスのみ。
