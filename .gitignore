@@ -1,0 +1,22 @@
+# Secrets / local environment
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Dependencies
+node_modules/
+
+# Temporary / backup files
+backup/
+backups/
+*.bak
+*.tmp
+*.log
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
