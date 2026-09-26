@@ -82,3 +82,13 @@
 - Cloudflare Worker移行後に未使用となっていた `tokuhara_anth_key` 定数、`mr()`、`FO()` を削除
 - 過去の端末に残存している可能性がある旧Anthropic APIキーを、起動時に `localStorage.removeItem("tokuhara_anth_key")` で削除
 - AI通信は従来どおり Firebase ID Token付きでCloudflare Workerを経由し、Anthropic APIキーはブラウザへ保存しない構成を維持
+
+---
+
+## v2026.09.26.1717 旧Firebaseルート互換読み込みの撤去
+
+### データ構造・保守性
+- Realtime Databaseの旧ルート直下データをFirebase Consoleで整理し、正式パス `households/tokuhara_family_v1/data/` への移行完了を実機確認
+- `Dt()` から旧ルート直下 `/{key}` を読み込んで正式パスへ自動コピーする互換処理を削除
+- 正式パスからの読み込みと、通信障害時の端末一時保存（`localStorage` の `fb_` データ）フォールバックは維持
+- 旧データへの意図しない依存をなくし、Firebase Rulesと実装上のデータパスを一致させた
