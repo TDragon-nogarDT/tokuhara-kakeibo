@@ -21,5 +21,8 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Check LF line endings
+        run: node security/check-line-endings.mjs index.html sw.js finance-core.mjs
+
       - name: Check external script supply chain
         run: node security/check-supply-chain.mjs index.html
