@@ -5,6 +5,39 @@
 
 ---
 
+## v2026.09.27.0012 Finance Core本番移行
+
+### 財務計算のモジュール分離
+- 従来 `index.html` 内の巨大バンドルに埋め込まれていた主要財務計算を `finance-core.mjs` へ分離
+- 旧 `Dl()` はFinance Coreを呼び出す薄い入口へ変更
+- 8% / 10%税計算、`rawAmt`、分担、収入、共同口座精算、個人間立替精算、貯蓄口座除外、スナップショット等を可読な純粋関数として整理
+- 既存仕様を「改善」せず、v0011互換を優先して移行
+
+### 検証
+- 財務計算の自動テスト: 16/16 合格
+- v0011から抽出した旧計算ロジックとのGolden Testを実施
+- 実バックアップデータを用いて2026年1月〜9月を比較し、9/9か月で完全一致
+- 主要財務値の許容差: 0円
+- Phase 3試験版を別URLで実機検証
+  - 読み込み、月切替、共同費、個人費、レポート
+  - Firebaseへの書き込み・同期・元戻し
+  - AIカテゴリ提案
+  - 本番との主要金額一致
+- 本番反映後のスモークテストも全項目合格
+
+### CSP / Firebase Realtime Database
+- Realtime DatabaseのWebSocket失敗時に使用されるlong-polling用動的ホストをCSPへ追加
+- `https://*.firebaseio.com`
+- `https://*.firebasedatabase.app`
+- インラインスクリプトのSHA-256を再計算し、CSP整合性を確認
+
+### 試験環境
+- `phase3-test/` を一時的にGitHub Pagesへ配置して実機試験
+- 本番移行完了後に `phase3-test/` を削除
+- Supply Chain Check / GitHub Pages deployment ともに正常終了を確認
+
+---
+
 ## v2026.07.12.1629（gitトラッキング開始）
 
 ### 今回のセッションで行った主要な変更
