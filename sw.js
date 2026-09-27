@@ -7,11 +7,11 @@
 
 // APP_VERSIONと連動させるため、index.htmlの更新時にここも更新することで
 // 古いキャッシュを確実に破棄できます。手動でバージョン文字列を変更してください。
-const CACHE_VERSION = "v2026.09.27.0011";
+const CACHE_VERSION = "v2026.09.27.0012";
 const CACHE_NAME = `tokuhara-kakeibo-${CACHE_VERSION}`;
 
 // このアプリは単一HTMLファイル構成のため、キャッシュ対象はルートパスのみ。
-const APP_SHELL = ["./", "./index.html"];
+const APP_SHELL = ["./", "./index.html", "./finance-core.mjs"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
