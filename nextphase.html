@@ -1,0 +1,397 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>徳原家｜立替・精算とふるさと納税</title><style>:root{color-scheme:dark;font-family:system-ui,-apple-system,'Noto Sans JP','Meiryo',sans-serif;background:#0b1120;color:#ecf2fd;font-size:15px}*{box-sizing:border-box}body{margin:0;min-height:100vh}header{background:#101c30;border-bottom:1px solid #293b55;padding:22px max(20px,calc((100vw - 1100px)/2));}header h1{font-size:1.28rem;margin:0 0 5px}h2{font-size:1.22rem;margin:0}h3{font-size:1.05rem;margin:0 0 12px}h4{font-size:.95rem;margin:0 0 12px}main{max-width:1100px;margin:0 auto;padding:20px}p{line-height:1.65;margin:6px 0}.muted{color:#a7b6cc}.small{font-size:.8rem}.notice{color:#fce6bc;background:#342a16;border:1px solid #84632b;border-radius:11px;padding:15px;margin-bottom:20px;line-height:1.6}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.tab{background:#142137;border:1px solid #2c4669;border-radius:11px;padding:12px 16px;color:#b1c9e6;font-weight:700;cursor:pointer}.tab.active{background:#244a78;border-color:#67a7ef;color:white}.section-title{display:flex;align-items:start;justify-content:space-between;gap:10px;margin:18px 0}.chip{border:1px solid #385678;border-radius:999px;padding:5px 12px;white-space:nowrap}.panel{background:#132038;border:1px solid #2b4160;border-radius:13px;padding:20px;margin:16px 0;box-shadow:0 5px 24px #0002}.casehead{display:flex;justify-content:space-between;gap:15px;align-items:start}.status{font-size:.78rem;display:inline-block;padding:4px 7px;border:1px solid #7189a3;border-radius:7px;margin-left:6px;color:#bfd1e7}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;align-items:end}label{color:#c2d0e0;font-size:.82rem;display:flex;flex-direction:column;gap:5px;font-weight:650}input,select{width:100%;color:#f1f7ff;background:#0c1629;border:1px solid #476180;border-radius:8px;padding:11px;font:inherit;font-size:.94rem;min-height:43px}input::placeholder{color:#8197af}button,.button{cursor:pointer;border-radius:9px;padding:10px 16px;border:1px solid #486489;color:#dceafb;background:#253b56;font-size:.9rem;font-weight:700}button:hover,.button:hover{filter:brightness(1.13)}button.primary{background:#2574bc;border-color:#4489d0;color:white}.secondary{background:#243a55}.danger{color:#ffc7c7;border-color:#8b5252;background:#472b34}.ghost{background:transparent}.form-actions{display:flex;justify-content:end;align-items:end}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}.stats>div{border-radius:10px;background:#0d1a2b;padding:14px;display:flex;flex-direction:column;gap:7px}.stats small{color:#9ab0c9;font-size:.76rem}.stats strong{font-size:1.22rem;overflow-wrap:anywhere}.subsection{border-top:1px solid #314765;padding-top:18px;margin-top:18px}.hint{font-size:.82rem;color:#adc1d8;line-height:1.75}.proposal{background:#192f48;border-left:3px solid #77aee9;padding:12px 16px;border-radius:7px;margin:12px 0}.proposal p{margin:3px 0}.ok{color:#a2e6bd}.err{color:#ffacb9}.overflow{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.85rem;white-space:normal}td,th{border-bottom:1px solid #2e4560;padding:9px;text-align:left}th{color:#a9c0dc}td.money{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}button.tiny{font-size:.75rem;padding:6px 8px}.selector{display:flex;gap:12px;flex-wrap:wrap}.selector label{min-width:160px}details{margin-top:16px}summary{cursor:pointer;background:#1a304c;border-radius:9px;padding:11px;color:#cde6ff;font-weight:700}.monthline{padding:8px;background:#0c192c;border-radius:7px;font-size:.78rem;overflow-wrap:anywhere}.empty{border:1px dashed #54708d;border-radius:12px;padding:24px;text-align:center;color:#bdd0e4}.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:15px 0}.button{display:inline-flex;font-size:.9rem;align-items:center}#flash{position:sticky;bottom:0;color:#b9e9d0;background:#143626;padding:7px 18px;border-radius:8px;width:max-content;max-width:90%;margin:0 auto 16px;min-height:1px}#flash:empty{display:none}footer{text-align:center;color:#869bb6;padding:16px;font-size:.78rem}@media(max-width:700px){main{padding:13px}header{padding:17px}.panel{padding:14px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats strong{font-size:1.1rem}.tab{flex:1 1 auto;font-size:.78rem;padding:10px}.formgrid{grid-template-columns:1fr}.form-actions button{width:100%}.casehead h3{font-size:1rem}}
+
+/* v0.2: inline, keyboard- and touch-accessible explanations. */
+.form-field{display:flex;flex-direction:column;gap:5px;min-width:0;align-self:start}
+.form-field>label{display:block;color:#c2d0e0;font-size:.82rem;font-weight:650;margin-bottom:1px}
+.choice-explanation{font-size:.77rem;line-height:1.55;color:#c5daef;border-left:2px solid #5fa9ef;background:#0d2036;border-radius:0 5px 5px 0;padding:7px 9px;margin:2px 0 0;min-height:2.1em}
+.field-note{font-size:.75rem;line-height:1.5;font-weight:400;color:#aec9df;margin-top:1px}
+.help-guide{margin:2px 0 16px;border:1px solid #355477;background:#101e32;border-radius:10px;overflow:hidden}
+.help-guide>summary{margin:0;background:transparent;font-size:.83rem;font-weight:700;padding:11px 13px;color:#b5d8f8}
+.help-guide[open]>summary{border-bottom:1px solid #355477}
+.help-guide dl{display:grid;grid-template-columns:minmax(85px,130px) 1fr;gap:8px 10px;margin:0;padding:13px;font-size:.8rem;line-height:1.6}
+.help-guide dt{font-weight:700;color:#f1f7ff}
+.help-guide dd{margin:0;color:#c7d6e7}
+.help-guide dt:not(:first-child){border-top:1px solid #263e5b;padding-top:8px}
+.help-guide dt:not(:first-child)+dd{border-top:1px solid #263e5b;padding-top:8px}
+@media(max-width:700px){.help-guide dl{grid-template-columns:minmax(72px,110px) 1fr;gap:7px}.choice-explanation{font-size:.79rem}}
+
+.formgrid{align-items:start}.form-actions{align-self:end}.choice-explanation::before{content:"ⓘ  ";color:#83c6ff;font-weight:700}.status-inline{margin:5px 0 0;max-width:680px;font-size:.78rem}
+
+/* v0.3 company remittance: one banking event, split only if exceptional. */
+.receipt-details{grid-column:1 / -1;min-width:0}
+.receipt-details details{margin-top:0}
+.receipt-details summary{font-size:.84rem}
+.receipt-split-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}
+.receipt-hint{border-left:3px solid #529fdf;padding-left:10px;margin-top:10px}
+@media(max-width:700px){.receipt-split-grid{grid-template-columns:1fr}}
+</style></head><body><header><h1>立替・精算 ／ ふるさと納税</h1><p class="muted">家計管理アプリ追加台帳 RC1（既存精算との自動連携は未実装）</p></header><main><nav id="tabs" class="tabs" aria-label="機能切替"></nav><div id="content"></div><div id="flash" role="status" aria-live="polite"></div></main><footer>RC1 / 独立台帳 / 家計支出には自動転記しません</footer><script>// Pure reference calculations for Tokuhara Kakeibo next-phase prototype.
+// This module NEVER writes to Firebase or the main household finance data.
+const POOLS = Object.freeze(['tocchan','sae','joint']);
+const LABELS = Object.freeze({tocchan:'とっくん',sae:'さえさん',joint:'共同口座'});
+const isDate = x => typeof x==='string' && /^\d{4}-\d{2}-\d{2}$/.test(x) && !Number.isNaN(new Date(x+'T12:00:00Z').getTime()) && new Date(x+'T12:00:00Z').toISOString().slice(0,10)===x;
+const isPool = x => POOLS.includes(x);
+function validateMoney(x,{allowZero=false}={}) {
+  if(typeof x!=='number' || !Number.isSafeInteger(x) || x<0 || (!allowZero && x===0)) throw new Error('金額は正の整数（円）で入力してください');
+  return x;
+}
+const validEvent=(e,kind)=>{
+  if(!e || typeof e!=='object' || typeof e.id!=='string' || !e.id.trim() || !isDate(e.date))throw Error(`${kind}: IDまたは日付が不正です`);
+  if(e.cashDate!=null&&e.cashDate!==''&&!isDate(e.cashDate))throw Error(`${kind}: 引落日が不正です`);
+  validateMoney(e.amount);
+};
+function validateAdvance(c){
+  if(!c||typeof c!=='object'||!c.id||!String(c.title||'').trim()||!isPool(c.owner))throw Error('立替案件の基本情報が不正です');
+  if(!['draft','submitted','approved','closed'].includes(c.status))throw Error('立替案件の状態が不正です');
+  for(const key of ['payments','receipts','transfers'])if(!Array.isArray(c[key]))throw Error(`${key}は配列です`);
+  const ids=new Set();
+  const unique=(v)=>{if(ids.has(v.id))throw Error('案件内に同じ明細IDがあります');ids.add(v.id)};
+  c.payments.forEach(p=>{validEvent(p,'支出');unique(p);if(!isPool(p.from))throw Error('支出元を選択してください');if(p.existingExpenseRef!=null&&typeof p.existingExpenseRef!=='string')throw Error('既存支出への参照が不正です')});
+  c.receipts.forEach(r=>{
+    validEvent(r,'入金');unique(r);
+    if(!isPool(r.to))throw Error('入金先を選択してください');
+    validateMoney(r.reimbursementAmount,{allowZero:true});validateMoney(r.allowanceAmount,{allowZero:true});
+    if(r.reimbursementAmount+r.allowanceAmount!==r.amount)throw Error('入金額と実費・日当の内訳が一致しません');
+  });
+  c.transfers.forEach(t=>{validEvent(t,'家計内振込');unique(t);if(!isPool(t.from)||!isPool(t.to)||t.from===t.to)throw Error('家計内振込元・先が不正です')});
+  if(c.approvedAmount!=null)validateMoney(c.approvedAmount,{allowZero:true});
+  if(c.allowanceExpectedAmount!=null)validateMoney(c.allowanceExpectedAmount,{allowZero:true});
+  if(c.status==='closed'){
+    if(c.approvedAmount==null||c.allowanceExpectedAmount==null)throw Error('精算完了には実費承認額と日当合計額の両方を確定してください（支給なしは0円）');
+    const reimbursed=sum(c.receipts.map(r=>r.reimbursementAmount));
+    const allowances=sum(c.receipts.map(r=>r.allowanceAmount));
+    if(reimbursed!==c.approvedAmount||allowances!==c.allowanceExpectedAmount)throw Error('精算完了には実費・日当の両方の入金額を確認してください');
+  }
+  return c;
+}
+const sum=a=>a.reduce((x,y)=>x+y,0);
+// Partial or unexpected company remittances cannot be allocated safely by guesswork.
+// Automatic allocation is allowed only when the incoming amount matches the exact
+// outstanding total of both known components. Otherwise request an explicit split.
+function suggestReceiptSplit(c,amount){
+  validateMoney(amount);
+  if(c.approvedAmount===null||c.approvedAmount===undefined||c.allowanceExpectedAmount===null||c.allowanceExpectedAmount===undefined)return null;
+  const remReimb=c.approvedAmount-sum(c.receipts.map(r=>r.reimbursementAmount));
+  const remAllowance=c.allowanceExpectedAmount-sum(c.receipts.map(r=>r.allowanceAmount));
+  if(remReimb<0||remAllowance<0||remReimb+remAllowance!==amount)return null;
+  return {reimbursementAmount:remReimb,allowanceAmount:remAllowance};
+}
+function summarizeAdvance(c){
+  validateAdvance(c);
+  const paid=sum(c.payments.map(x=>x.amount));
+  const reimbursed=sum(c.receipts.map(x=>x.reimbursementAmount));
+  const allowances=sum(c.receipts.map(x=>x.allowanceAmount));
+  const received=reimbursed+allowances;
+  const approved=c.approvedAmount??null;
+  const allowanceExpected=c.allowanceExpectedAmount??null;
+  const expectedTotal=approved===null||allowanceExpected===null?null:approved+allowanceExpected;
+  const pendingReimbursement=approved===null?null:Math.max(approved-reimbursed,0);
+  const pendingAllowance=allowanceExpected===null?null:Math.max(allowanceExpected-allowances,0);
+  const pending=expectedTotal===null?null:Math.max(expectedTotal-received,0);
+  const estimatedSelf=approved===null?null:paid-approved;
+  const finalSelf=c.status==='closed'?paid-reimbursed:null;
+  const net=Object.fromEntries(POOLS.map(x=>[x,0]));
+  for(const p of c.payments)net[p.from]-=p.amount;
+  for(const r of c.receipts)net[r.to]+=r.amount;
+  for(const t of c.transfers){net[t.from]-=t.amount;net[t.to]+=t.amount;}
+  const goal=Object.fromEntries(POOLS.map(x=>[x,x===c.owner?received-paid:0]));
+  const difference=Object.fromEntries(POOLS.map(x=>[x,goal[x]-net[x]]));
+  const debtors=POOLS.filter(x=>difference[x]<0).map(x=>({pool:x,amount:-difference[x]}));
+  const creditors=POOLS.filter(x=>difference[x]>0).map(x=>({pool:x,amount:difference[x]}));
+  const transfers=[];
+  for(const d of debtors)for(const cr of creditors){const amount=Math.min(d.amount,cr.amount);if(amount>0){transfers.push({from:d.pool,to:cr.pool,amount});d.amount-=amount;cr.amount-=amount;}}
+  if(sum(Object.values(difference))!==0 || sum(debtors.map(x=>x.amount))||sum(creditors.map(x=>x.amount)))throw Error('振込計算の整合性エラー');
+  const months={};
+  const add=(date,pool,amount)=>{const m=date.slice(0,7);months[m]??={tocchan:0,sae:0,joint:0};months[m][pool]+=amount;};
+  for(const p of c.payments)add(p.cashDate||p.date,p.from,-p.amount);
+  for(const r of c.receipts)add(r.date,r.to,r.amount);
+  for(const t of c.transfers){add(t.date,t.from,-t.amount);add(t.date,t.to,t.amount)}
+  return {paid,reimbursed,allowances,received,approved,allowanceExpected,expectedTotal,pending,pendingReimbursement,pendingAllowance,estimatedSelf,finalSelf,net,goal,difference,proposedTransfers:transfers,months,companySettled:c.status==='closed',reimbursementOverpaid:approved===null?0:Math.max(0,reimbursed-approved),allowanceOverpaid:allowanceExpected===null?0:Math.max(0,allowances-allowanceExpected)};
+}
+// Imports older standalone v0.1/v0.2 JSON without assuming that two entries
+// dated alike were necessarily one bank transfer. Historical entries stay separate.
+function upgradeState(input){
+  if(!input||typeof input!=='object')throw Error('不正な保存データです');
+  if(input.schema===2)return structuredClone(input);
+  if(input.schema!==1)throw Error('未対応のデータ形式です');
+  const state=structuredClone(input);state.schema=2;
+  for(const c of state.advances){
+    c.allowanceExpectedAmount=null; // unknown is NOT equivalent to zero
+    for(const r of c.receipts){
+      r.reimbursementAmount=r.kind==='allowance'?0:r.amount;
+      r.allowanceAmount=r.kind==='allowance'?r.amount:0;
+      delete r.kind;
+    }
+    // Old 'closed' did not validate full payment and no allowance expected existed.
+    // Downgrade to 'approved' until both amounts are explicitly confirmed.
+    if(c.status==='closed')c.status='approved';
+  }
+  verifyState(state);
+  return state;
+}
+function validateDonation(d){
+  if(!d||typeof d!=='object'||!d.id||!isDate(d.date)||!isPool(d.donor)||d.donor==='joint'||!isPool(d.paidFrom)||!isPool(d.economicBearer??d.donor)||typeof d.municipality!=='string'||!d.municipality.trim())throw Error('寄附の基本情報が不正です');
+  validateMoney(d.amount);
+  if(d.cashDate!=null&&d.cashDate!==''&&!isDate(d.cashDate))throw Error('寄附の実引落日が不正です');
+  if(!['unselected','onestop','return'].includes(d.filingMethod))throw Error('申告方法が不正です');
+  if(!['not_started','submitted','confirmed'].includes(d.applicationStatus))throw Error('申請状態が不正です');
+  if(d.linkedExpenseRef!=null&&typeof d.linkedExpenseRef!=='string')throw Error('既存支出参照が不正です');
+  return d;
+}
+function validateDonations(ds){
+  if(!Array.isArray(ds))throw Error('寄附は配列です');
+  const ids=new Set(), expenseIds=new Set();
+  ds.forEach(d=>{validateDonation(d);if(ids.has(d.id))throw Error('寄附IDが重複しています');ids.add(d.id);if(d.linkedExpenseRef){if(expenseIds.has(d.linkedExpenseRef))throw Error('既存支出の重複紐付けは禁止です');expenseIds.add(d.linkedExpenseRef)}});
+  return ds;
+}
+function summarizeDonations(ds,year,donor,{limit=null,verifiedIncomeTax=0,verifiedResidentTax=0}={}){
+  validateDonations(ds);
+  if(!Number.isInteger(year)||year<2000||year>2100||!['tocchan','sae'].includes(donor))throw Error('対象年度・寄附者が不正です');
+  if(limit!==null)validateMoney(limit,{allowZero:true});
+  validateMoney(verifiedIncomeTax,{allowZero:true});validateMoney(verifiedResidentTax,{allowZero:true});
+  const rows=ds.filter(d=>d.date.startsWith(String(year)+'-')&&d.donor===donor);
+  const total=sum(rows.map(d=>d.amount));
+  const candidateDeduction=Math.max(total-2000,0); // NOT guaranteed actual tax credit
+  const verified=verifiedIncomeTax+verifiedResidentTax;
+  const requiredTransfers=rows.filter(d=>d.paidFrom!==(d.economicBearer??d.donor)).map(d=>({from:d.economicBearer??d.donor,to:d.paidFrom,amount:d.amount,donationId:d.id}));
+  return {rows,total,municipalities:new Set(rows.map(x=>x.municipality.trim())).size,candidateDeduction,limit,limitRemaining:limit===null?null:limit-total,limitExceeded:limit!==null&&total>limit,verifiedIncomeTax,verifiedResidentTax,verifiedTotal:verified,actualEffectiveCost:verified?total-verified:null,requiredTransfers,applicationPending:rows.filter(x=>x.applicationStatus!=='confirmed').length};
+}
+function assertUniqueExpenseRefs(cases,donations){
+  const seen=new Map();
+  for(const c of cases){validateAdvance(c);for(const p of c.payments)if(p.existingExpenseRef){if(seen.has(p.existingExpenseRef))throw Error(`既存明細 ${p.existingExpenseRef} が複数案件で使われています`);seen.set(p.existingExpenseRef,c.id)}}
+  validateDonations(donations);
+  for(const d of donations)if(d.linkedExpenseRef){if(seen.has(d.linkedExpenseRef))throw Error(`既存明細 ${d.linkedExpenseRef} を二重紐付けできません`);seen.set(d.linkedExpenseRef,d.id)}
+  return true;
+}
+function verifyState(state){
+  if(!state||state.schema!==2||!Array.isArray(state.advances)||!Array.isArray(state.donations))throw Error('未対応のデータ形式です');
+  if(state.taxReviews!=null){if(typeof state.taxReviews!=='object'||Array.isArray(state.taxReviews))throw Error('税控除の管理形式が不正です');for(const [k,v] of Object.entries(state.taxReviews)){if(!/^\d{4}:(tocchan|sae)$/.test(k)||!v||typeof v!=='object')throw Error('税控除の年・寄附者形式が不正です');if(v.limit!=null)validateMoney(v.limit,{allowZero:true});validateMoney(v.incomeTax??0,{allowZero:true});validateMoney(v.residentTax??0,{allowZero:true});}}
+  const caseIds=new Set();for(const c of state.advances){validateAdvance(c);if(caseIds.has(c.id))throw Error('案件ID重複');caseIds.add(c.id);summarizeAdvance(c)}
+  assertUniqueExpenseRefs(state.advances,state.donations);
+  return state;
+}
+const EMPTY_STATE=Object.freeze({schema:2,advances:[],donations:[]});
+
+// Experimental isolated UI. No Firebase, no household main ledger writes.
+const STORAGE='tokuhara-nextphase-prototype-20261024-v3';
+const LEGACY_STORAGE='tokuhara-nextphase-prototype-20261024-v1';
+const DEFAULT={schema:2,advances:[],donations:[],taxReviews:{}};
+const EMBEDDED=window.parent!==window&&new URLSearchParams(location.search).has('embedded');
+let state=structuredClone(DEFAULT),storageAvailable=true,bridgeReady=!EMBEDDED,bridgeFailure='',remoteRevision=null,saveBusy=false;
+if(!EMBEDDED){try{const stored=JSON.parse(localStorage.getItem(STORAGE)||localStorage.getItem(LEGACY_STORAGE)||'null');state=stored?upgradeState(stored):structuredClone(DEFAULT);verifyState(state);}catch(e){storageAvailable=false;state=structuredClone(DEFAULT)}}
+let requestSerial=0;const pendingRequests=new Map();
+if(EMBEDDED){window.addEventListener('message',event=>{
+  if(event.source!==window.parent||event.origin!==location.origin||event.data?.channel!=='tokuhara-nextphase-rc1-result')return;
+  const callback=pendingRequests.get(event.data.requestId);if(!callback)return;
+  pendingRequests.delete(event.data.requestId);callback(event.data);
+})}
+function bridgeRequest(action,payload={}){
+  if(!EMBEDDED)throw Error('組込モード以外ではクラウドへ保存しません');
+  const requestId=++requestSerial;
+  return new Promise((resolve,reject)=>{
+    const timeout=setTimeout(()=>{pendingRequests.delete(requestId);reject(Error('アプリとの通信がタイムアウトしました'))},15000);
+    pendingRequests.set(requestId,msg=>{clearTimeout(timeout);msg.ok?resolve(msg):reject(Error(msg.error||'クラウド処理に失敗しました'))});
+    window.parent.postMessage({channel:'tokuhara-nextphase-rc1',requestId,action,...payload},location.origin)
+  });
+}
+async function initializeEmbedded(){
+  if(!EMBEDDED)return;
+  try{
+    const response=await bridgeRequest('read');
+    verifyState(response.state);state=response.state;
+    remoteRevision=response.revision;bridgeReady=true;bridgeFailure='';render();
+  }catch(err){bridgeFailure=err.message;bridgeReady=false;render()}
+}
+
+let active='advances';let donationYear=new Date().getFullYear();let donationDonor='tocchan';
+const yen=x=>x==null?'—':new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(x);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const poolOptions=(selected='tocchan')=>POOLS.map(p=>`<option value="${p}" ${p===selected?'selected':''}>${esc(LABELS[p])}</option>`).join('');
+const personOptions=(selected='tocchan')=>['tocchan','sae'].map(p=>`<option value="${p}" ${p===selected?'selected':''}>${esc(LABELS[p])}</option>`).join('');
+const today=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Tokyo'});
+// Every explanation is read-only UI metadata. It never changes saved data or calculations.
+const SELECT_HELP={
+  'ステータス':{
+    draft:'まだ会社へ精算申請していない状態です。支払明細の登録はできます。',
+    submitted:'会社へ精算申請済みで、承認または入金を待っている状態です。',
+    approved:'会社の精算承認額が確定した状態です。入金済みとは限りません。',
+    closed:'実費精算分と日当分の両方について、会社からの入金を確認した状態です。家計内補填とは別です。'},
+  '最終的な費用帰属者':{
+    tocchan:'精算後の不足額や日当等の経済効果を、とっくんのものとして扱います。',
+    sae:'精算後の不足額や日当等の経済効果を、さえさんのものとして扱います。'},
+  '実際の引落元':{
+    tocchan:'とっくんの個人口座・現金から支払う場合。カード利用時はカード代金の引落元で判定します。',
+    sae:'さえさんの個人口座・現金から支払う場合。カード利用時はカード代金の引落元で判定します。',
+    joint:'共同口座・共同資金から支払う場合。カード利用時はカード代金の引落元で判定します。'},
+  '決済方法':{
+    personal_card:'個人名義のカード決済です。引落元は別の項目で指定します。',
+    joint_card:'共同生活用のカード決済です。誰の資金から引き落とすかは別に指定します。',
+    bank_transfer:'銀行口座から振り込んだ支払いです。',
+    cash:'現金で支払ったものです。実際に使った人・共同資金を引落元で選びます。',
+    other:'上記に当てはまらない方法です。必要に応じて使途欄にも記録します。'},
+  '実際の入金先':{
+    tocchan:'会社からの精算金を、とっくんの個人口座で受け取った場合です。',
+    sae:'会社からの精算金を、さえさんの個人口座で受け取った場合です。',
+    joint:'会社からの精算金を、共同口座で受け取った場合です。'},
+  '状態':{
+    draft:'まだ会社へ精算申請していない状態です。',
+    submitted:'会社に申請済みです。承認・入金待ちの場合に選びます。',
+    approved:'会社承認額が確定しました。まだ振り込まれていなくても選択できます。',
+    closed:'実費・日当の両方が確定・入金済みの状態です。家計内補填の完了とは別です。'},
+  '振込元':{
+    tocchan:'とっくんが家庭内の補填金を振り込む場合です。',
+    sae:'さえさんが家庭内の補填金を振り込む場合です。',
+    joint:'共同口座から家庭内の補填金を振り込む場合です。'},
+  '振込先':{
+    tocchan:'家庭内補填金を、とっくんが受け取る場合です。',
+    sae:'家庭内補填金を、さえさんが受け取る場合です。',
+    joint:'家庭内補填金を、共同口座が受け取る場合です。'},
+  '寄附者':{
+    tocchan:'税控除を受ける寄附者がとっくんの場合。支払った人とは必ずしも同じとは限りません。',
+    sae:'税控除を受ける寄附者がさえさんの場合。決済・寄附名義の整合性も確認してください。'},
+  '最終的な家計負担者':{
+    tocchan:'家計上はとっくんが寄附額を負担します。',
+    sae:'家計上はさえさんが寄附額を負担します。',
+    joint:'家計上は夫婦の共同資金で負担します。税控除を受ける寄附者は変わりません。'},
+  '申請方法':{
+    unselected:'控除を受ける手続きが未定の状態です。期限に注意してください。',
+    onestop:'一定の要件を満たす場合の申請方法です。主に翌年度の住民税から控除されます。',
+    return:'確定申告で寄附金控除を申告します。所得税と翌年度住民税に反映される場合があります。'},
+  '申請状態':{
+    not_started:'申請・確定申告がまだ完了していません。',
+    submitted:'ワンストップ申請の提出、または確定申告の送信・提出を済ませた状態です。',
+    confirmed:'提出先での受付・受理を確認した状態です。税控除額を確認した意味ではありません。'}
+};
+const FIELD_HELP={
+  '会社承認額（未確定なら空欄）':'交通費・宿泊費等の会社承認額です。未確定は空欄、実費支給なしが確定したら0円。日当は含めません。',
+  '承認額（0円も可／未確定なら空欄）':'会社が承認した実費精算の合計額。日当は含めません。「0円」と未確定（空欄）を区別します。',
+  '日当合計額（未確定なら空欄）':'会社が支給する日当・手当の合計です。単価・日数の入力は不要。未確定は空欄、支給なしが確定したら0円です。',
+  '日当合計額（0円も可／未確定なら空欄）':'日当の合計額を直接入力します。未確定は空欄、支給なしは0円と入力します。',
+  '会社振込額（円）':'銀行口座で受け取った合計金額を1件で登録します。実費・日当が合算されていて構いません。',
+  '実費精算分（円）':'振込に含まれる実費精算部分です。振込額が未入金合計と一致すれば自動設定します。',
+  '日当・手当分（円）':'振込に含まれる日当の部分です。振込額が未入金合計と一致すれば自動設定します。',
+  '支払日':'購入・利用した日です。カードの実際の引落日は別に登録できます。',
+  '実際の引落日（分かる場合）':'カード代金や寄附金が口座から出た日です。空欄の場合は利用日・寄附日で暫定集計します。',
+  '既存アプリの明細ID（任意）':'現在は本番家計簿との紐付けが動作しない試作欄です。通常は空欄にしてください。',
+  '既存家計明細ID（任意）':'現在は本番家計簿との紐付けが動作しない試作欄です。通常は空欄にしてください。',
+  '寄附日':'寄附した日です。クレジットカードの引落日とは別です。',
+  '控除上限の試算額（任意）':'外部で試算した年間寄附上限の目安です。実際の控除上限・控除額の確定値ではありません。',
+  '実際に確認した所得税の還付・軽減額':'確定申告などによる所得税の還付・軽減額を、確認できた範囲で入力します。',
+  '住民税決定通知等で確認した控除額':'翌年度の住民税決定通知書などで確認できた寄附金控除額です。実際の入金ではありません。'
+};
+let helpId=0;
+const fieldId=()=>`field-help-${++helpId}`;
+const field=(label,name,type='text',attrs='')=>`<label>${esc(label)}<input name="${name}" type="${type}" ${attrs}>${FIELD_HELP[label]?`<span class="field-note">${esc(FIELD_HELP[label])}</span>`:''}</label>`;
+const select=(label,name,choices)=>{
+  const id=fieldId(), spec=SELECT_HELP[label];
+  return `<div class="form-field"><label for="${id}">${esc(label)}</label><select id="${id}" name="${name}"${spec?` data-explain="${esc(label)}"`:''}>${choices}</select>${spec?'<p class="choice-explanation" aria-live="polite"></p>':''}</div>`;
+};
+function initializeChoiceHelp(){
+  document.querySelectorAll('select[data-explain]').forEach(el=>{
+    const spec=SELECT_HELP[el.dataset.explain];
+    const explanation=el.parentElement.querySelector('.choice-explanation');
+    if(!spec||!explanation)return;
+    explanation.textContent=spec[el.value]||'この選択肢の補足説明はありません。';
+  });
+}
+function helpGlossary(type){
+  if(type==='advance')return `<details class="help-guide"><summary>？ ステータス・会社入金の意味を一覧で確認</summary><dl><dt>未申請</dt><dd>会社への出張精算申請前</dd><dt>申請済</dt><dd>申請は済んだが、金額・入金が確定していない</dd><dt>承認済</dt><dd>会社による支給内容が確定した。入金前でも可</dd><dt>精算完了</dt><dd>実費・日当とも金額が確定し、合計額を受け取り終えた状態。家計内の補填は別</dd><dt>実費承認額</dt><dd>交通費・宿泊費などの弁済対象額。日当は含めない</dd><dt>日当合計額</dt><dd>会社からの定額手当を合計で入力。単価・日数は不要</dd><dt>会社からの振込</dt><dd>実費と日当を合算した実際の銀行入金。1振込＝1記録</dd><dt>内訳の確認</dt><dd>振込が確定未入金額と一致しないときは、実費・日当の内訳を指定する</dd></dl></details>`;
+  return `<details class="help-guide"><summary>？ 申請方法・申請状態の意味を一覧で確認</summary><dl><dt>ワンストップ特例</dt><dd>要件を満たす場合の制度。通常、翌年度住民税で控除</dd><dt>確定申告</dt><dd>寄附金控除を確定申告で申告。所得税・住民税に反映される場合あり</dd><dt>未申請</dt><dd>まだ申請していない</dd><dt>申請済</dt><dd>自治体へ申請書提出、または確定申告を提出済み</dd><dt>確認済</dt><dd>申請の受付・受理を確認した。税控除額の確認とは異なる</dd></dl></details>`;
+}
+const get=(f,n)=>f.elements.namedItem(n)?.value?.trim()??'';
+const positive=(f,n)=>{const v=get(f,n);if(!/^\d+$/.test(v)||Number(v)<=0||!Number.isSafeInteger(Number(v)))throw Error('金額は1円以上の整数で入力してください');return Number(v)};
+const nonnegative=(f,n)=>{const v=get(f,n);if(!/^\d+$/.test(v)||!Number.isSafeInteger(Number(v)))throw Error('金額は0円以上の整数で入力してください');return Number(v)};
+const uid=()=> 'id'+Date.now().toString(36)+Math.random().toString(36).slice(2,10);
+const statusLabel={draft:'未申請',submitted:'申請済',approved:'承認済',closed:'精算完了'};
+async function save(){verifyState(state);if(EMBEDDED){const result=await bridgeRequest('write',{state,revision:remoteRevision});remoteRevision=result.revision}else if(storageAvailable){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch(e){storageAvailable=false}}render()}
+function option(arr,v,labels){return arr.map(x=>`<option value="${x}"${x===v?' selected':''}>${labels[x]}</option>`).join('')}
+function notices(){return EMBEDDED?`<section class="notice"><b>統合RC1・試験機能</b>：立替・寄附の台帳は既存の家計収支とは別のFirebase領域へ保存します。共同費・個人費・給与・資産・振込管理には<b>自動転記・自動精算されません</b>。二重登録防止のため既存明細を確認し、📦からJSONも控えとして保存してください。${saveBusy?'（クラウド保存中）':''}</section>`:`<section class="notice">単独動作の試作プレビュー。実際の家計簿やFirebaseには接続しません。${!storageAvailable?'自動保存できません。JSONで保全してください。':''}</section>`}
+function render(){
+  if(EMBEDDED&&!bridgeReady){document.querySelector('#tabs').innerHTML='';document.querySelector('#content').innerHTML=`<section class="notice">${bridgeFailure?`接続できません：${esc(bridgeFailure)}。画面を閉じ、ログイン・接続状況を確認してください。`:'ログイン状態とクラウド台帳を確認しています…'}</section>`;return}
+  document.querySelector('#tabs').innerHTML=`<button class="tab ${active==='advances'?'active':''}" data-tab="advances">🧾 立替・精算</button><button class="tab ${active==='donations'?'active':''}" data-tab="donations">🏡 ふるさと納税</button><button class="tab ${active==='backup'?'active':''}" data-tab="backup">📦 試作データ・説明</button>`;
+  const area=document.querySelector('#content');
+  helpId=0;
+  try{area.innerHTML=notices()+(active==='advances'?renderAdvances():active==='donations'?renderDonations():renderBackup());initializeChoiceHelp();updateReceiptHints();}catch(e){area.innerHTML=notices()+`<p class="err">表示エラー: ${esc(e.message)}</p>`}
+}
+function renderAdvances(){
+  let html=`<div class="section-title"><div><h2>立替・会社精算管理</h2><p class="muted">交通費・宿泊費＋日当合計額を登録。会社の一括振込を1件で記録</p></div><span class="chip">${state.advances.length} 件</span></div>${helpGlossary('advance')}`;
+  html+=`<section class="panel"><h3>新しい立替案件</h3><form id="new-advance" class="formgrid">${field('案件名','title','text','required placeholder="例：○○工場出張" maxlength="80"')}${select('最終的な費用帰属者','owner',personOptions())}${select('ステータス','status',option(['draft','submitted','approved'], 'draft',statusLabel))}${field('会社承認額（未確定なら空欄）','approvedAmount','number','min="0" step="1" placeholder="未確定"')}${field('日当合計額（未確定なら空欄）','allowanceExpectedAmount','number','min="0" step="1" placeholder="未確定"')}<div class="form-actions"><button type="submit" class="primary">＋ 案件を追加</button></div></form></section>`;
+  if(!state.advances.length)html+=`<div class="empty">立替案件はありません。上から案件を作成するか、📦でサンプルを読み込めます。</div>`;
+  for(const c of state.advances){const s=summarizeAdvance(c);
+    html+=`<section class="panel"><div class="casehead"><div><h3>${esc(c.title)} <span class="status" title="${esc(SELECT_HELP['ステータス'][c.status])}">${statusLabel[c.status]}</span></h3><span class="muted small">費用帰属：${LABELS[c.owner]}</span><p class="hint status-inline">ⓘ ${esc(SELECT_HELP['ステータス'][c.status])}</p></div><button type="button" class="danger ghost" data-delcase="${esc(c.id)}">削除</button></div><div class="stats"><div><small>立替額（交通・宿泊等）</small><strong>${yen(s.paid)}</strong></div><div><small>日当合計額</small><strong>${s.allowanceExpected===null?'未確定':yen(s.allowanceExpected)}</strong></div><div><small>会社からの実入金（合算）</small><strong>${yen(s.received)}</strong></div><div><small>会社支給合計の未入金</small><strong>${s.pending===null?'未確定':yen(s.pending)}</strong></div></div><p class="hint">会社への支給予定合計：${s.expectedTotal===null?'未確定':yen(s.expectedTotal)}（実費承認額 ${s.approved===null?'未確定':yen(s.approved)} ＋ 日当 ${s.allowanceExpected===null?'未確定':yen(s.allowanceExpected)}）<br>会社入金のうち実費精算：${yen(s.reimbursed)} ／ 日当：${yen(s.allowances)}。実費だけを差し引いた最終本人負担：${s.finalSelf===null?'未確定':yen(s.finalSelf)}（日当は別の支給）</p>`;
+    if(s.reimbursementOverpaid||s.allowanceOverpaid)html+=`<p class="err">会社入金内訳が確定額を超過しています。承認額と振込内訳を確認してください。</p>`;
+    html+=`<details><summary>明細の登録・編集、会社精算と家計内補填を確認</summary><div class="subsection"><h4>案件の精算状態</h4><form class="formgrid" data-updatecase="${esc(c.id)}">${select('状態','status',option(['draft','submitted','approved','closed'],c.status,statusLabel))}${field('承認額（0円も可／未確定なら空欄）','approvedAmount','number',`min="0" step="1" placeholder="未確定" value="${c.approvedAmount??''}"`)}${field('日当合計額（0円も可／未確定なら空欄）','allowanceExpectedAmount','number',`min="0" step="1" placeholder="未確定" value="${c.allowanceExpectedAmount??''}"`)}<div class="form-actions"><button class="secondary" type="submit">状態を保存</button></div></form><p class="hint">「精算完了」は実費承認額と日当合計額を確定し、その全額を受け取った状態です。家計内補填の完了とは別です。</p></div>`;
+    html+=`<div class="subsection"><h4>① 支払い（個人・共同どちらも可）</h4>${eventTable(c.payments,'payment',c.id)}<form data-addpay="${esc(c.id)}" class="formgrid">${field('支払日','date','date',`required value="${today()}"`)}${field('金額（円）','amount','number','required min="1" step="1"')}${select('実際の引落元','from',poolOptions())}${select('決済方法','paymentMethod',option(['personal_card','joint_card','bank_transfer','cash','other'],'personal_card',{personal_card:'個人カード',joint_card:'共同カード',bank_transfer:'銀行振込',cash:'現金',other:'その他'}))}${field('実際の引落日（分かる場合）','cashDate','date','')}${field('使途','memo','text','placeholder="交通費・宿泊費など" maxlength="100"')}${field('既存アプリの明細ID（任意）','existingExpenseRef','text','placeholder="将来の紐付け用" maxlength="120"')}<div class="form-actions"><button class="secondary" type="submit">＋ 支払いを記録</button></div></form></div>`;
+    html+=`<div class="subsection"><h4>② 会社からの一括入金</h4><p class="hint">交通費・宿泊費と日当が合算された振込は、<b>銀行への1回の振込を1件</b>として入力します。入金額が残りの支給確定額と一致する場合、実費・日当の内訳は自動設定されます。</p>${eventTable(c.receipts,'receipt',c.id)}<form data-addreceipt="${esc(c.id)}" class="formgrid">${field('入金日','date','date',`required value="${today()}"`)}${field('会社振込額（円）','amount','number','required min="1" step="1"')}${select('実際の入金先','to',poolOptions())}<div class="receipt-details"><details><summary>実費・日当の振込内訳（差額がある場合のみ入力）</summary><p class="hint">全額一致の場合は入力不要です。分割振込・端数差・支給額未確定の場合は、銀行入金額と一致するよう内訳を入力してください。</p><div class="receipt-split-grid">${field('実費精算分（円）','reimbursementAmount','number','min="0" step="1" placeholder="自動／必要時入力"')}${field('日当・手当分（円）','allowanceAmount','number','min="0" step="1" placeholder="自動／必要時入力"')}</div></details><p class="receipt-hint hint" aria-live="polite"></p></div><div class="form-actions"><button class="secondary" type="submit">＋ 会社入金を1件で記録</button></div></form></div>`;
+    html+=`<div class="subsection"><h4>③ 家計内の補填</h4><p class="hint">以下は実際の支払・会社入金・補填済み記録から算出した<strong>参考提案</strong>です。既存の振込管理に同じ金額が含まれていないか確認してから判断してください。</p>${s.proposedTransfers.length?'<div class="proposal">'+s.proposedTransfers.map(t=>`<p><b>${LABELS[t.from]} → ${LABELS[t.to]}：${yen(t.amount)}</b></p>`).join('')+'</div>':'<div class="ok">現時点で追加提案額はありません。</div>'}${eventTable(c.transfers,'transfer',c.id)}<form data-addtransfer="${esc(c.id)}" class="formgrid">${field('振込実施日','date','date',`required value="${today()}"`)}${field('振込額（円）','amount','number','required min="1" step="1"')}${select('振込元','from',poolOptions('tocchan'))}${select('振込先','to',poolOptions('joint'))}<div class="form-actions"><button class="secondary" type="submit">＋ 補填済みを記録</button></div></form></div>`;
+    html+=`<div class="subsection"><h4>月別資金移動（生活費とは別・引落日未入力は利用日で暫定計上）</h4>${Object.keys(s.months).sort().map(m=>`<p class="monthline">${m}　${POOLS.map(p=>`${LABELS[p]}：${yen(s.months[m][p])}`).join(' ／ ')}</p>`).join('')||'<p class="muted">明細なし</p>'}</div></details></section>`;
+  }
+  return html;
+}
+function eventTable(rows,type,caseId){if(!rows.length)return '<p class="muted small">記録はありません。</p>';const cells=rows.map(r=>{
+  let desc=type==='payment'?`${LABELS[r.from]} 払い${r.memo?'／'+esc(r.memo):''}${r.existingExpenseRef?'／既存明細リンク：'+esc(r.existingExpenseRef):''}`:type==='receipt'?`${LABELS[r.to]} に入金（実費 ${yen(r.reimbursementAmount)} ＋ 日当 ${yen(r.allowanceAmount)}）`:`${LABELS[r.from]} → ${LABELS[r.to]}`;
+  return `<tr><td>${esc(r.date)}</td><td>${desc}</td><td class="money">${yen(r.amount)}</td><td><button class="tiny danger" data-delevent="${esc(caseId)}" data-eventtype="${type}" data-eventid="${esc(r.id)}">削除</button></td></tr>`;
+});return `<div class="overflow"><table><tbody>${cells.join('')}</tbody></table></div>`}
+function renderDonations(){
+  const current=new Date().getFullYear(), year=donationYear, donor=donationDonor;
+  const review=state.taxReviews?.[`${year}:${donor}`]||{}, s=summarizeDonations(state.donations,year,donor,{limit:review.limit??null,verifiedIncomeTax:review.incomeTax??0,verifiedResidentTax:review.residentTax??0});
+  let html=`<div class="section-title"><div><h2>ふるさと納税管理</h2><p class="muted">寄附者別・暦年別に集計。税控除は実際の給与収入とは分離。</p></div><span class="chip">${state.donations.length} 寄附</span></div>${helpGlossary('donation')}<div class="selector"><label>対象年 <select id="year">${Array.from({length:5},(_,i)=>current-2+i).map(y=>`<option value="${y}"${y===year?' selected':''}>${y}年</option>`).join('')}</select></label><label>寄附者 <select id="donor">${personOptions(donor)}</select></label></div>`;
+  html+=`<div class="stats summary"><div><small>年間寄附総額</small><strong>${yen(s.total)}</strong></div><div><small>自治体数</small><strong>${s.municipalities}件</strong></div><div><small>2,000円超部分（参考）</small><strong>${yen(s.candidateDeduction)}</strong></div><div><small>確認済み税控除額</small><strong>${yen(s.verifiedTotal)}</strong></div></div>`;
+  html+=`<p class="hint">2,000円超部分は控除確定額ではありません。所得・他の控除・上限超過・手続状況によって実際の税控除額は異なります。控除前後を現金収支に重複計上しません。</p>`;
+  html+=`<section class="panel"><h3>寄附を追加</h3><form id="new-donation" class="formgrid">${field('寄附日','date','date',`required value="${today()}"`)}${select('寄附者','donor',personOptions(donor))}${field('自治体名','municipality','text','required maxlength="100" placeholder="自治体名"')}${field('寄附額（円）','amount','number','required min="1" step="1"')}${select('実際の引落元','paidFrom',poolOptions())}${select('最終的な家計負担者','economicBearer',poolOptions())}${select('決済方法','paymentMethod',option(['personal_card','joint_card','bank_transfer','cash','other'],'personal_card',{personal_card:'個人カード',joint_card:'共同カード',bank_transfer:'銀行振込',cash:'現金',other:'その他'}))}${field('実際の引落日（分かる場合）','cashDate','date','')}${select('申請方法','filingMethod',option(['unselected','onestop','return'],'unselected',{unselected:'未選択',onestop:'ワンストップ特例',return:'確定申告'}))}${select('申請状態','applicationStatus',option(['not_started','submitted','confirmed'],'not_started',{not_started:'未申請',submitted:'申請済',confirmed:'確認済'}))}${field('既存家計明細ID（任意）','linkedExpenseRef','text','placeholder="将来の紐付け用" maxlength="120"')}<div class="form-actions"><button class="primary" type="submit">＋ 寄附を登録</button></div></form><p class="hint">実際の決済に使ったカード名ではなく、<b>最終的に引き落とされる資金元</b>を選んでください。寄附者は税控除の対象者、最終負担者は家計上の帰属先です。共同口座負担を選んでも税控除が夫婦で分割されるわけではありません。</p></section>`;
+  html+=`<section class="panel"><h3>${year}年・${LABELS[donor]}の寄附一覧</h3>${s.rows.length?`<div class="overflow"><table><thead><tr><th>寄附日／自治体</th><th>引落元／負担者</th><th>寄附額</th><th>申請</th><th></th></tr></thead><tbody>${s.rows.map(d=>`<tr><td>${esc(d.date)}<br><b>${esc(d.municipality)}</b></td><td>${LABELS[d.paidFrom]}<br><span class="muted small">負担：${LABELS[d.economicBearer??d.donor]}</span></td><td class="money">${yen(d.amount)}</td><td>${{unselected:'未選択',onestop:'ワンストップ',return:'確定申告'}[d.filingMethod]}<br><span class="muted small">${{not_started:'未申請',submitted:'申請済',confirmed:'確認済'}[d.applicationStatus]}</span></td><td><button class="tiny danger" data-deldonation="${esc(d.id)}">削除</button></td></tr>`).join('')}</tbody></table></div>`:'<p class="muted">この年・寄附者の登録はまだありません。</p>'}`;
+  html+=`<div class="subsection"><h4>税控除の確認（実績を確認した後に入力）</h4><form class="formgrid" id="reviewtax" data-year="${year}" data-donor="${donor}">${field('控除上限の試算額（任意）','limit','number',`min="0" step="1" placeholder="未算定" value="${review.limit??''}"`)}${field('実際に確認した所得税の還付・軽減額','incomeTax','number',`min="0" step="1" value="${review.incomeTax??0}"`)}${field('住民税決定通知等で確認した控除額','residentTax','number',`min="0" step="1" value="${review.residentTax??0}"`)}<div class="form-actions"><button class="secondary" type="submit">控除確認情報を保存</button></div></form>`;
+  html+=`<p class="hint">控除限度額はアプリが推測しません。ワンストップ特例の住民税控除は実際の現金入金ではありません。「確認済み」は税通知などで確認したときのみ入力してください。</p>`;
+  if(review.limit!=null)html+=`<p class="${s.limitExceeded?'err':'muted'}">登録した上限目安との差額：${yen(s.limitRemaining)} ${s.limitExceeded?'（上限目安超過）':''}</p>`;
+  if(s.requiredTransfers.length)html+=`<div class="proposal"><b>口座間補填の参考</b><p class="small">既存の家計精算で同じ寄附が精算対象なら二重振込をしないでください。</p>${s.requiredTransfers.map(t=>`<p>${LABELS[t.from]} → ${LABELS[t.to]} ${yen(t.amount)}</p>`).join('')}</div>`;
+  html+=`</div></section>`;
+  return html;
+}
+function renderBackup(){return `<section class="panel"><h2>試作データの管理</h2><p>保存先：${EMBEDDED?"ログイン中のFirebase内の追加台帳（共同費・個人費とは別）":"このブラウザのみ（Firebase接続なし）"}。JSONバックアップは必ず別途保存してください。</p><div class="actions"><button class="primary" id="download">試作JSONを保存</button><label class="button secondary">試作JSONを読み込む<input style="display:none" id="upload" type="file" accept=".json,application/json"></label>${EMBEDDED?"":"<button class=\"secondary\" id=\"sample\">サンプルデータを読み込む</button>"}${EMBEDDED?"":'<button class="danger" id="clear">試作データ全件削除</button>'}</div><div class="subsection"><h3>連携の制限</h3><p>既存明細ID欄は将来の連携用メモです。現行の共同費・個人費の明細を読み込んだり、書き換えたり、精算管理へ自動加算することはありません。</p><p>立替明細・寄附明細は現行の家計収支とは別の台帳です。本番家計簿に入力した支出を二重に登録しないよう、正式実装時には既存明細への紐付けと二重計上除外を必須とします。</p><p>会社精算の承認額は未確定の場合は空欄のままにしてください。確定収支は「精算完了」の案件にのみ表示します。日当と実費は1振込にまとめて記録できます。</p></div></section>`}
+async function mutate(action){
+  if(saveBusy){const flash=document.querySelector('#flash');flash.textContent='保存中です。完了後に操作してください。';return}
+  const prior=structuredClone(state);saveBusy=true;
+  try{
+    action();await save();
+    const flash=document.querySelector('#flash');flash.classList.remove('err');flash.textContent=EMBEDDED?'クラウド台帳に保存しました（家計収支への自動反映はありません）':storageAvailable?'試作データを保存しました':'表示を更新しました（JSONで保全してください）';
+  }catch(err){state=prior;render();const flash=document.querySelector('#flash');flash.textContent='保存・入力エラー：'+err.message;flash.classList.add('err')}
+  finally{saveBusy=false}
+}
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('button');if(!btn)return;
+  if(btn.dataset.tab){active=btn.dataset.tab;render();return}
+  if(btn.dataset.delcase){if(confirm('この試作案件を削除しますか？'))mutate(()=>state.advances=state.advances.filter(x=>x.id!==btn.dataset.delcase));return}
+  if(btn.dataset.delevent){if(confirm('この試作明細を削除しますか？'))mutate(()=>{const c=state.advances.find(x=>x.id===btn.dataset.delevent);c[{payment:'payments',receipt:'receipts',transfer:'transfers'}[btn.dataset.eventtype]]=c[{payment:'payments',receipt:'receipts',transfer:'transfers'}[btn.dataset.eventtype]].filter(x=>x.id!==btn.dataset.eventid)});return}
+  if(btn.dataset.deldonation){if(confirm('この試作寄附を削除しますか？'))mutate(()=>state.donations=state.donations.filter(x=>x.id!==btn.dataset.deldonation));return}
+  if(btn.id==='download'){const b=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a'),url=URL.createObjectURL(b);a.href=url;a.download=EMBEDDED?'tokuhara-advance-donation-backup.json':'tokuhara-prototype-sandbox-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);return}
+  if(btn.id==='clear'&&!EMBEDDED){if(confirm('このブラウザの試作データだけを消去します。本番家計簿は変更しません。よろしいですか？'))mutate(()=>{state=structuredClone(DEFAULT)});return}
+  if(btn.id==='sample'&&!EMBEDDED){if(confirm('現在の試作データをサンプルに置き換えます。本番家計簿は変更しません。'))mutate(()=>{state={schema:2,advances:[{id:'sample1',title:'【サンプル】出張交通費・宿泊費と日当',owner:'tocchan',status:'approved',approvedAmount:34110,allowanceExpectedAmount:6000,payments:[{id:'sp1',date:'2026-10-05',amount:11680,from:'joint',memo:'往路'},{id:'sp2',date:'2026-10-07',amount:12430,from:'joint',memo:'復路'},{id:'sp3',date:'2026-10-06',amount:10000,from:'tocchan',memo:'宿泊費'}],receipts:[],transfers:[]}],donations:[{id:'sd1',date:'2026-10-12',amount:50000,municipality:'【サンプル】架空市',donor:'tocchan',paidFrom:'tocchan',filingMethod:'onestop',applicationStatus:'not_started'}],taxReviews:{}}});return}
+});
+function updateReceiptHints(){
+  document.querySelectorAll('form[data-addreceipt]').forEach(f=>{
+    const c=state.advances.find(x=>x.id===f.dataset.addreceipt),raw=get(f,'amount');
+    const hint=f.querySelector('.receipt-hint');if(!hint||!c)return;
+    const n=Number(raw);if(!/^\d+$/.test(raw)||n<=0){hint.textContent='会社振込額を入力すると、自動内訳の可否を表示します。';return}
+    const suggested=suggestReceiptSplit(c,n), manual=get(f,'reimbursementAmount')!==''||get(f,'allowanceAmount')!=='';
+    hint.textContent=manual?'内訳を手入力しています。実費＋日当が銀行振込額と一致するか保存時に確認します。':suggested?`自動内訳：実費 ${yen(suggested.reimbursementAmount)} ＋ 日当 ${yen(suggested.allowanceAmount)}（銀行への振込は1件で記録）`:'予定額との差額があります。上の「振込内訳」を開き、実費分と日当分を入力してください。';
+  });
+}
+document.addEventListener('input',e=>{if(e.target.closest('form[data-addreceipt]'))updateReceiptHints()});
+document.addEventListener('change',async e=>{
+  if(e.target.matches('select[data-explain]')){const hint=e.target.parentElement.querySelector('.choice-explanation');if(hint)hint.textContent=SELECT_HELP[e.target.dataset.explain]?.[e.target.value]||'この選択肢の補足説明はありません。';}
+  if(e.target.id==='year'){donationYear=Number(e.target.value);render();return}
+  if(e.target.id==='donor'){donationDonor=e.target.value;render();return}
+  if(e.target.id==='upload'){const f=e.target.files[0];if(!f)return;try{const value=JSON.parse(await f.text());const converted=upgradeState(value);if(!confirm(EMBEDDED?'クラウドの立替・寄附台帳をJSONの内容で上書きします。現在のデータは先にJSONで保全してください。続行しますか？':'このブラウザの試作データを読み込んだJSONで置き換えますか？'))return;await mutate(()=>{state=converted});}catch(err){alert('読み込みできません：'+err.message)}}
+});
+document.addEventListener('submit',e=>{const f=e.target;if(!(f instanceof HTMLFormElement))return;e.preventDefault();mutate(()=>{
+  if(f.id==='new-advance') {const a=get(f,'approvedAmount');const approvedAmount=a===''?null:nonnegative(f,'approvedAmount');const status=get(f,'status');const allowanceExpectedAmount=get(f,'allowanceExpectedAmount')===''?null:nonnegative(f,'allowanceExpectedAmount');const c={id:uid(),title:get(f,'title'),owner:get(f,'owner'),status,approvedAmount,allowanceExpectedAmount,payments:[],receipts:[],transfers:[]};validateAdvance(c);state.advances.push(c);return}
+  if(f.dataset.updatecase){const c=state.advances.find(x=>x.id===f.dataset.updatecase);c.status=get(f,'status');c.approvedAmount=get(f,'approvedAmount')===''?null:nonnegative(f,'approvedAmount');c.allowanceExpectedAmount=get(f,'allowanceExpectedAmount')===''?null:nonnegative(f,'allowanceExpectedAmount');validateAdvance(c);return}
+  const c=state.advances.find(x=>x.id===(f.dataset.addpay||f.dataset.addreceipt||f.dataset.addtransfer));
+  if(c&&f.dataset.addpay){c.payments.push({id:uid(),date:get(f,'date'),amount:positive(f,'amount'),from:get(f,'from'),paymentMethod:get(f,'paymentMethod'),cashDate:get(f,'cashDate')||null,memo:get(f,'memo'),existingExpenseRef:get(f,'existingExpenseRef')||null});return}
+  if(c&&f.dataset.addreceipt){const amount=positive(f,'amount');const automatic=suggestReceiptSplit(c,amount);const rawReimbursement=get(f,'reimbursementAmount'),rawAllowance=get(f,'allowanceAmount');let reimbursementAmount,allowanceAmount;if(rawReimbursement===''&&rawAllowance===''&&automatic){({reimbursementAmount,allowanceAmount}=automatic)}else if(rawReimbursement!==''&&rawAllowance!==''){reimbursementAmount=nonnegative(f,'reimbursementAmount');allowanceAmount=nonnegative(f,'allowanceAmount')}else throw Error('確定未入金額との一致が確認できません。振込内訳の「実費精算分」と「日当分」を両方入力してください');c.receipts.push({id:uid(),date:get(f,'date'),amount,to:get(f,'to'),reimbursementAmount,allowanceAmount});return}
+  if(c&&f.dataset.addtransfer){c.transfers.push({id:uid(),date:get(f,'date'),amount:positive(f,'amount'),from:get(f,'from'),to:get(f,'to')});return}
+  if(f.id==='new-donation'){state.donations.push({id:uid(),date:get(f,'date'),donor:get(f,'donor'),municipality:get(f,'municipality'),amount:positive(f,'amount'),paidFrom:get(f,'paidFrom'),economicBearer:get(f,'economicBearer'),paymentMethod:get(f,'paymentMethod'),cashDate:get(f,'cashDate')||null,filingMethod:get(f,'filingMethod'),applicationStatus:get(f,'applicationStatus'),linkedExpenseRef:get(f,'linkedExpenseRef')||null});return}
+  if(f.id==='reviewtax'){state.taxReviews??={};state.taxReviews[`${f.dataset.year}:${f.dataset.donor}`]={limit:get(f,'limit')===''?null:nonnegative(f,'limit'),incomeTax:nonnegative(f,'incomeTax'),residentTax:nonnegative(f,'residentTax')};return}
+  throw Error('未対応のフォームです');
+})});
+render();initializeEmbedded();
+</script></body></html>
